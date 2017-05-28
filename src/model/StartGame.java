@@ -56,7 +56,7 @@ public class StartGame{
             model.Target tr = new model.Target(0, st.getString());
 
             try {
-                client = new Client(st);
+                client = new Client(st, st.get_ip());
                 opponent_name = client.sendName(tr.getName());
             }
             catch(IOException e){

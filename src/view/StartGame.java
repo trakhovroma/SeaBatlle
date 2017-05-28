@@ -14,6 +14,7 @@ public class StartGame extends JFrame {
     private JButton startgame2;     //start as Client
     private JTextField textField;   //textfield with your name
     private JFrame frame;
+    private JTextField txt;         //for ip
 
     public StartGame() {
         frame = new JFrame("Sea Battle");
@@ -28,7 +29,13 @@ public class StartGame extends JFrame {
         JLabel battle = new JLabel(" ");
         battle.setPreferredSize(dim1);
 
+        txt = new JTextField();
         textField = new JTextField();
+
+
+        txt.setPreferredSize(dimension);
+        txt.setFont(new Font("Droid Sans Mono",Font.PLAIN, 28));
+        txt.setHorizontalAlignment(JTextField.CENTER);
 
         textField.setPreferredSize(dimension);
         textField.setFont(new Font("Droid Sans Mono",Font.PLAIN, 28));
@@ -51,6 +58,7 @@ public class StartGame extends JFrame {
         frame.add(textField, BorderLayout.CENTER);
         frame.add(startgame1);
         frame.add(startgame2);
+        frame.add(txt);
 
         frame.getContentPane().setBackground(new Color(119, 188, 226));
 
@@ -79,4 +87,5 @@ public class StartGame extends JFrame {
     public JFrame getFrame(){
         return this.frame;
     }
+    public String get_ip(){ return txt.getText();}
 }

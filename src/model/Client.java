@@ -17,13 +17,13 @@ public class Client {
     private PrintWriter out;
     private Socket fromserver;
 
-    public Client(JFrame frame) throws IOException {
+    public Client(JFrame frame, String ip) throws IOException {
 
         System.out.println("Welcome to Client side");
         fromserver = null;
         System.out.println("Connecting to... "+"localhost");
         try {
-            fromserver = new Socket("localhost", 8888);
+            fromserver = new Socket(ip, 8888);
         }
         catch(ConnectException e){
             JOptionPane.showMessageDialog(frame, "There is no such server");
