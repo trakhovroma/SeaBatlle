@@ -20,3 +20,5 @@
                    1                    2                  Win 
                    1                    2                 Lose 
                    2                    1                  Win 
+                   2                    1                 Lose 
+                   1                    2                  Win 
