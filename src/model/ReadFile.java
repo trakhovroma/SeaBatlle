@@ -24,7 +24,7 @@ public class ReadFile extends AbstractTableModel {
         data = new Vector();
         columns = new Vector();
         try {
-            FileInputStream fis = new FileInputStream("/home/trakhov-pc/IdeaProjects/seaBattle/scores.txt");
+            FileInputStream fis = new FileInputStream(System.getProperty("user.dir") +"/scores.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(fis));
             StringTokenizer st1 = new StringTokenizer(br.readLine(), " ");
             while (st1.hasMoreTokens())

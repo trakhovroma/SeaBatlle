@@ -10,7 +10,7 @@ import java.io.IOException;
 public class WriteFile {
     public WriteFile(String YourName, String OppName, Boolean result) {
 
-        File dir = new File("/home/trakhov-pc/IdeaProjects/seaBattle");
+        File dir = new File(System.getProperty("user.dir"));
         File file = new File(dir, "scores.txt");
         try {
             FileWriter writer = new FileWriter(file, true);
