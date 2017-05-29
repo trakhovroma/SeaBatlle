@@ -29,16 +29,18 @@ public class Server {
 
         // create server socket
         try
-        {servers = new ServerSocket(8888);
+
+        {servers = create(new int[] {4567,7654,8904,4567,8765});
         } catch(IOException e)
         {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(frame, "Server is already run on this host, play as a client");
+            JOptionPane.showMessageDialog(frame, "smth went wrong");
         }
 
         try
         {
             JOptionPane.showMessageDialog(frame, "Server runned, waiting your opponent");
+            System.out.println("listening on port: " + servers.getLocalPort());
             fromclient = servers.accept();
             JOptionPane.showMessageDialog(frame, "Opponent connected");
         } catch(IOException e)
@@ -75,5 +77,17 @@ public class Server {
         out.println(name);
         String input = in.readLine();
         return input;
+    }
+    public ServerSocket create(int[] ports) throws IOException {
+        for (int port : ports) {
+            try {
+                return new ServerSocket(port);
+            } catch (IOException ex) {
+                continue; // try next port
+            }
+        }
+
+        // if the program gets here, no port in the range was found
+        throw new IOException("no free port found");
     }
 }
